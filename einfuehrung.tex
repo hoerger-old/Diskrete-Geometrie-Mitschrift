@@ -1,0 +1,87 @@
+\section{Einführung}
+
+\subsection{Polytope}
+
+\begin{defi}
+Eine Menge $K\subseteq\bbR^d$ heißt konvex genau dann wenn $\ul{x},\ul{y}\in K \follows 
+[\ul{x},\ul{y}]\subseteq K$ 
+\end{defi}
+Sind $M,L\subseteq\bbR^d$ konvex so ist auch $M\cap L$ konvex.
+
+\begin{figure}
+    \psset{xunit=0.7cm,yunit=0.7cm,runit=0.7cm}
+    \centering
+    \begin{pspicture}(0,0)(6,5)
+        \psccurve(1,1.5)(0,4)(3,5)(3,3)(5,2.5)(3.5,1)(1,1.5) 
+        \psline{*-*}(2,4.5)(4.5,2.5)
+        \rput(2,4.15){x}
+        \rput(4.5,2.15){y}
+    \end{pspicture}
+    \caption{nicht konvexe Menge}
+\end{figure}
+
+\begin{defi}[konvexe Hülle]
+Sei $M\subseteq\bbR^d$. Die konvexe Hülle von $M$ ist definierit als:
+\begin{align*}
+    conv(M):=\bigcap\{K\subseteq\bbR^d: K\mbox{ konvex, }M\subseteq K\}
+\end{align*}
+\end{defi}
+Selbstverständlich ist dann $conv(M)$ konvex.
+
+\begin{defi}[konvexe Kombination]
+$\ul{x_1},\dots,\ul{x_n}\in\bbR$, $\lambda_i\geq 0$ sowie $\sum_{i=1}^n\lambda_i=1$ dann ist
+die \emph{konvexe Kombination} definiert als: 
+\begin{align*}
+\ul{x_1}\lambda_1+\ul{x_2}\lambda_2+\dots+\ul{x_n}\lambda_n
+\end{align*}
+bzw. $\sum_{i=1}^n\ul{x_i}\lambda_i$.
+\end{defi}
+
+\begin{satz}
+Wenn $K\subseteq\bbR^d$ und $K$ konvex, so gilt:
+\begin{align*}
+\ul{x_1},\dots,\ul{x_n}\in K \follows \ul{x_1}\lambda_1+\dots+\ul{x_n}\lambda_n\in K
+\end{align*}
+wobei $\lambda\geq 0$ und $\sum\lambda_i=1$.
+\end{satz}
+
+\begin{proof}[Beweisidee]
+Dieser Satz kann über eine Induktion über $k$ bewiesen werden. Dazu wird in jedem Schritt 
+auf folgende Form umgeformt:
+\begin{align*}
+(1-\lambda_k)\left(\frac{\lambda_1}{1-\lambda_k}\ul{x_1}+\dots+%
+                \frac{\lambda_{k-1}}{1-\lambda_k}\ul{x_{k-1}}\right)+\lambda_k\ul{x_k} \in K
+\end{align*}
+\end{proof}
+Damit ist eine mögliche alternative Definition der konvexen Hülle möglich. Aus vorhergehendem Satz
+folgt nämlich, dass $\left\{\sum_{i=1}^k\lambda_i\ul{x_i}:\ul{x_i}\in M, \lambda_i\geq0, 
+    \sum\lambda_i=1, k\in\bbN\right\}\supseteq conv(M)$. Es ist leicht einzusehen, dass sogar 
+Gleichheit gilt. 
+
+\begin{defi}
+Ein (konvexes) Polytop ist die konvexe Hülle von endlich vielen Punkten.
+\begin{align*}
+&\ul{v_1},\dots,\ul{v_n}\in\bbR^d                &P=conv\{\ul{v_1},\dots,\ul{u_n}\} \\
+&V=(\ul{v_1},\dots,\ul{v_n})\in\bbR^{d\times n}  & =conv(V) 
+\end{align*}
+\end{defi}
+
+\begin{bsp}[d-Würfel]
+\begin{equation*}
+    C_d:=\left\{\ul{x}\in\bbR^d:|x_1|,\dots,|x_d|\leq1\right\}%
+    =conv\left\{\begin{pmatrix}1\\1\\\vdots\\1\end{pmatrix},
+                \begin{pmatrix}1\\-1\\1\\\vdots\\1\end{pmatrix},
+                \dots,
+                \begin{pmatrix}-1\\-1\\\vdots\\-1\end{pmatrix} \right\}=conv(\{-1, 1\}^d) 
+\end{equation*}
+Ein d-Würfel ist als die konvexe Hülle von $2^d$ Punkten wie oben definiert.
+\end{bsp}
+
+\begin{bsp}[d-Kreuzpolytop]
+In $\bbR^3$ entspricht das 3-Kreuzpolytop genau dem Oktaeder.
+\begin{equation*}
+C_d^\ast:=conv\left\{\ul{e_1},-\ul{e_1},\ul{e_2},-\ul{e_2},\dots,\ul{e_n},-\ul{e_n}\right\} %
+=\left\{\ul{x}\in\bbR^d:|x_1|+\dots+|x_d|\leq1\right\}
+\end{equation*}
+Wobei $e_i$ den Vektoren der kanonischen Basis von $\bbR^d$ entsprechen.
+\end{bsp}
