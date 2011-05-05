@@ -84,4 +84,53 @@ C_d^\ast:=conv\left\{\ul{e_1},-\ul{e_1},\ul{e_2},-\ul{e_2},\dots,\ul{e_n},-\ul{e
 =\left\{\ul{x}\in\bbR^d:|x_1|+\dots+|x_d|\leq1\right\}
 \end{equation*}
 Wobei $e_i$ den Vektoren der kanonischen Basis von $\bbR^d$ entsprechen.
+
+\begin{figure}
+    \centering
+    \psset{xunit=1.5cm,yunit=1.5cm,runit=1.5cm}
+    \psset{Alpha=60}
+    \begin{pspicture}(-1.6,-1.6)(2.2,2.2)
+        \pstThreeDCoor[linecolor=black, xMax=2 ,yMax=2, zMax=2, %
+                                        xMin=-1.5,yMin=-1.5,zMin=-1.5]
+        \pstThreeDLine(1,0,0)(0,0,1)
+        \pstThreeDLine(1,0,0)(0,0,-1)
+        \pstThreeDLine(1,0,0)(0,1,0)
+        \pstThreeDLine(1,0,0)(0,-1,0)
+        \pstThreeDLine(-1,0,0)(0,0,1)
+        \pstThreeDLine(-1,0,0)(0,1,0)
+        \pstThreeDLine(0,0,1)(0,1,0)
+        \pstThreeDLine(0,0,1)(0,-1,0)
+        \pstThreeDLine(0,0,-1)(0,1,0)
+        \pstThreeDLine[linestyle=dashed](-1,0,0)(0,-1,0)
+        \pstThreeDLine[linestyle=dashed](-1,0,0)(0,0,-1)
+        \pstThreeDLine[linestyle=dashed](0,0,-1)(0,-1,0)
+    \end{pspicture}
+    \caption{Oktaeder (3-Kreuzpolytop)}
+\end{figure}
+\end{bsp}
+
+\begin{bsp}[standard d-Simplex]
+Der 3-Simplex entspricht in diesem Fall dem Tetraeder.
+\begin{equation*}
+    \Delta_d:=conv\left\{\ul{e_1},\dots,\ul{e_{d+1}}\right\}=%
+    \left\{\ul{x}\in\bbR^{d+1}:x_1+\dots+x_{d+1}=1, x_1,\dots,x_{d+1}\geq0\right\}\subseteq\bbR^{d+1}
+\end{equation*}
+\begin{figure}
+    \centering
+    \psset{xunit=1cm,yunit=1cm,runit=1cm}
+    \subfigure[1-Simplex]{
+        \begin{pspicture}(3,3)    
+            \psaxes[ticks=none, labels=none]{->}(0.2,0.2)(2.8,2.8)
+            \psline{-}(0.2,2)(2,0.2)
+        \end{pspicture}
+    }
+    \subfigure[2-Simplex]{
+        \psset{Alpha=50}
+        \begin{pspicture}(-1.5,-1.5)    
+        \pstThreeDCoor[linecolor=black, xMax=2 ,yMax=2, zMax=2]
+        \pstThreeDTriangle[fillstyle=vlines](1.3,0,0)(0,1.3,0)(0,0,1.3)
+        \end{pspicture}
+    }
+    \caption{Beispiele für d-Simplexe}
+\end{figure}
 \end{bsp}
